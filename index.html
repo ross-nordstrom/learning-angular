@@ -7,7 +7,15 @@
 </head>
 <body ng-app="app">
 
-<dumb-password></dumb-password>
+(Change loglevel to 'info' or 'warn' to view logs in console)
+
+<div  class="button"
+      ng-repeat="item in ['a','b','c','d']"
+      ng-click="$log.debug($event)"
+      >
+  {{$index}}. {{item}}
+  {{ev.pageX}}
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script src="main.js"></script>
