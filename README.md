@@ -77,7 +77,7 @@ Similar to `@`, but on the entire scope. Note that changing the scope within `&`
 Some common pitfalls pointed out by the [AngularJS docs](http://docs.angularjs.org/misc/faq#commonpitfalls). 
 
 ### Reinventing the Wheel
-They most frequently occur when trying to use jQuery to do common tasks...
+Pitfalls most frequently occur when trying to use jQuery to do common tasks...
 
 #### ng-repeat
 Don't use jQuery's iterator. Just setup ng-repeat on an array, and modify the array
