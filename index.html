@@ -5,25 +5,14 @@
   <title>Learning AngularJS</title>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.2/stylesheets/foundation.min.css" />
 </head>
-<body>
+<body ng-app="app">
 
-<div ng-app="app">
-<clock timezone="MST"></clock>
-<br><br><br>
-<panel title="I'm a title">
-  <clock timezone="PST"></clock>
-</panel>
+<country>
+  <state>
+    <city></city>
+  </state>
+</country>
 
-<br><br><br>
-<panel title="I'm a title">
-  <clock timezone="PST"></clock>
-  <clock timezone="PST"></clock>
-  <clock timezone="PST"></clock>
-  <clock timezone="PST"></clock>
-  <clock timezone="PST"></clock>
-  <clock timezone="PST"></clock>
-</panel>
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script src="main.js"></script>

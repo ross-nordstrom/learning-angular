@@ -1,25 +1,34 @@
 var app = angular.module("app", []);
 
-app.directive("clock", function() {
+app.directive("country", function() {
   return {
     restrict: "E",
-    scope: {
-      timezone: "@"
-    },
-    template: "<div>12:00pm {{timezone}}</div>"
+    controller: function() {
+      this.makeAnnouncement = function(message) {
+        console.log("Country says: "+message);
+      }
+    }
   };
 });
 
-app.directive("panel", function() {
+app.directive("state", function () {
   return {
     restrict: "E",
-    transclude: true,
-    scope: {
-      title: "@"
-    },
-    template: "<div style='border:3px solid black'>"+
-        "<div class='alert-box'>{{title}}</div>"+
-        "<div ng-transclude></div>"+
-      "</div>"
+    controller: function () {
+      this.makeLaw = function (law) {
+        console.log("Law: " + law);
+      };
+    }
+  };
+});
+
+app.directive("city", function () {
+  return {
+    restrict: "E",
+    require: ["^country","^state"],
+    link: function (scope, element, attrs, ctrls) {
+      ctrls[0].makeAnnouncement("This city rocks");
+      ctrls[1].makeLaw("Jump higher");
+    }
   };
 });
