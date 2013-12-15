@@ -23,7 +23,10 @@ Please see [Imperative vs Declarative](http://latentflip.com/imperative-vs-decla
 Keep `$scope` out of your methods as much as possible. By keeping methods functional (independent of program state), we make it easier to write tests.
 
 ## Isolate Scope
-A common problem in angular apps is scope conflicts. Isolating the scope in your directives can help with this. First, a basic example of isolating scope in a directive:
+A common problem in angular apps is scope conflicts. These occur because directives are typically made for reuse
+(such as element or attribute reuse), which means you want to use the same directive many times in a given page,
+but probably don't want them influencing each other. Isolating the scope in your directives can help with this.
+First, a basic example of isolating scope in a directive:
 
 `index.html`
 ```HTML
@@ -59,3 +62,13 @@ app.directive("kid", function() {
    };
 });
 ```
+
+### Attribute Binding (@)
+I think this is basically a good clean way to do argument passing from the parent scope to the directive.
+
+### Bi-directional Binding (=)
+For example, if you `=` bind on a model, updating the model outside of the directive will update
+the model inside, and vice versa.
+
+### Bind to Parent Scope (&)
+Similar to `@`, but on the entire scope. Note that changing the scope within `&`-bound directive won't affect the parent scope.

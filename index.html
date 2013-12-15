@@ -7,11 +7,11 @@
 </head>
 <body ng-app="phoneApp">
 
-<div ng-controller="AppCtrl">
-  <div phone dial="callHome(message)"></div>
-  <div phone dial="callHome(message)"></div>
-  <div phone dial="callHome(message)"></div>
-</div>
+ <div ng-controller="AppCtrl">
+    <phone number="555-1234" network="network" make-call="leaveVoicemail(number, message)"></phone>
+    <phone number="867-5309" network="network" make-call="leaveVoicemail(number, message)"></phone>
+    <phone number="911" network="network" make-call="leaveVoicemail(number, message)"></phone>
+  </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script src="main.js"></script>
