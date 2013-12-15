@@ -5,10 +5,12 @@
   <title>Learning AngularJS</title>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.2/stylesheets/foundation.min.css" />
 </head>
-<body ng-app="dragModule">
+<body ng-app="drinkApp">
 
- <span my-draggable>Drag ME</span>
-
+<div ng-controller="AppCtrl">
+  <input type="text" ng-model="ctrlFlavor">
+  <div drink flavor="{{ctrlFlavor}}"></div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script src="main.js"></script>
