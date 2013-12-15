@@ -5,26 +5,11 @@
   <title>Learning AngularJS</title>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.2/stylesheets/foundation.min.css" />
 </head>
-<body ng-app="eventApp">
+<body ng-app="phoneApp">
 
- <div ng-controller="EventController">
-    Root scope <tt>MyEvent</tt> count: {{count}}
-    <ul>
-      <li ng-repeat="i in [1]" ng-controller="EventController">
-        <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
-        <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
-        <br>
-        Middle scope <tt>MyEvent</tt> count: {{count}}
-        <ul>
-          <li ng-repeat="item in [1, 2]" ng-controller="EventController">
-            Leaf scope <tt>MyEvent</tt> count: {{count}}
-            <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
-            <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+<div ng-controller="AppCtrl">
+  <div class="button" ng-click="AppCtrl.sayHi()">Click me!</div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script src="main.js"></script>

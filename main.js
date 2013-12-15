@@ -1,10 +1,9 @@
-angular.module("eventApp", [])
-  .controller('EventController', function($scope) {
-    $scope.count = 0;
-    $scope.$on('MyEvent', function() {
-      $scope.count++;
-      if($scope.count > 10) {
-        $scope.$destroy();
-      }
-    })
-  })
+var app = angular.module('phoneApp', []);
+
+app.controller("AppCtrl", function ($scope) {
+  this.sayHi = function () {
+    alert("hi");
+  };
+
+  return $scope.AppCtrl = this;
+});
