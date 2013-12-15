@@ -18,6 +18,8 @@
         <ul>
           <li ng-repeat="item in [1, 2]" ng-controller="EventController">
             Leaf scope <tt>MyEvent</tt> count: {{count}}
+            <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+            <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
           </li>
         </ul>
       </li>
