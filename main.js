@@ -1,48 +1,34 @@
-var app = angular.module('app', []);
+angular.module('xmpl.service', []).
+  value('greeter', {
+    salutation: 'Hello',
+    localize: function(localization) {
+      this.salutation = localization.salutation;
+    },
+    greet: function(name) {
+      return this.salutation + ' ' + name + '!';
+    }
+  }).
+  value('user', {
+    load: function(name) {
+      this.name = name;
+    }
+  });
 
-var phoneAppStuff = {}
+angular.module('xmpl.directive', []);
 
-/******************************************************************************
- * CONTROLLERS
- ***/
-phoneAppStuff.controllers = {};
-phoneAppStuff.controllers.RoomCtrl = function () {
-  this.openDoor = function () {
-    alert("creak");
-  }
+angular.module('xmpl.filter', []);
 
-  this.buttonTitle = "I'm a dog";
-  this.foo="bar";
+angular.module('xmpl', ['xmpl.service', 'xmpl.directive', 'xmpl.filter']).
+  run(function(greeter, user) {
+    // This is effectively part of the main method initialization code
+    greeter.localize({
+      salutation: 'Bonjour'
+    });
+    user.load('World');
+  })
+
+
+// A Controller for your app
+var XmplController = function($scope, greeter, user) {
+  $scope.greeting = greeter.greet(user.name);
 }
-phoneAppStuff.controllers.OtherCtrl = function () {
-  this.openDoor = function () {
-    alert("creak");
-  }
-
-  this.buttonTitle = "I'm a dog";
-  this.foo="baz";
-}
-
-app.controller(phoneAppStuff.controllers);
-
-/******************************************************************************
- * DIRECTIVES
- ***/
-phoneAppStuff.directives = {}
-phoneAppStuff.directives.panel = function() {
-  return {
-    restrict: "E"
-  }
-}
-
-app.directive(phoneAppStuff.directives);
-
-/******************************************************************************
- * FILTERS
- ***/
-// Can't declare filters as an object, so declare them individually
-app.filter('greet', function() {
-  return function(name) {
-    return 'Hello, '+name+'!';
-  }
-})
