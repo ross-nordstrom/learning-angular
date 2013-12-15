@@ -2,6 +2,9 @@ var app = angular.module('app', []);
 
 var phoneAppStuff = {}
 
+/******************************************************************************
+ * CONTROLLERS
+ ***/
 phoneAppStuff.controllers = {};
 phoneAppStuff.controllers.RoomCtrl = function () {
   this.openDoor = function () {
@@ -20,6 +23,11 @@ phoneAppStuff.controllers.OtherCtrl = function () {
   this.foo="baz";
 }
 
+app.controller(phoneAppStuff.controllers);
+
+/******************************************************************************
+ * DIRECTIVES
+ ***/
 phoneAppStuff.directives = {}
 phoneAppStuff.directives.panel = function() {
   return {
@@ -28,4 +36,13 @@ phoneAppStuff.directives.panel = function() {
 }
 
 app.directive(phoneAppStuff.directives);
-app.controller(phoneAppStuff.controllers);
+
+/******************************************************************************
+ * FILTERS
+ ***/
+// Can't declare filters as an object, so declare them individually
+app.filter('greet', function() {
+  return function(name) {
+    return 'Hello, '+name+'!';
+  }
+})

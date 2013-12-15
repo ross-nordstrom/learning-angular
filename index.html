@@ -11,8 +11,8 @@
   <div class="button" ng-click="room.openDoor()">
     {{room.buttonTitle}}
     <div ng-controller="OtherCtrl as other">
-      {{room.foo}}
-      {{other.foo}}
+      {{ room.foo | greet }}
+      {{ other.foo | greet }}
     </div>
   </div>
 </div>
