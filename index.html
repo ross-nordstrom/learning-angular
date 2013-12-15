@@ -5,11 +5,16 @@
   <title>Learning AngularJS</title>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.2/stylesheets/foundation.min.css" />
 </head>
-<body ng-app="phoneApp">
+<body ng-app="app">
 
-<div ng-controller="AppCtrl">
-  <panel>Example!</panel>
-  <div class="button" ng-click="AppCtrl.sayHi()">Click me!</div>
+<div ng-controller="RoomCtrl as room">
+  <div class="button" ng-click="room.openDoor()">
+    {{room.buttonTitle}}
+    <div ng-controller="OtherCtrl as other">
+      {{room.foo}}
+      {{other.foo}}
+    </div>
+  </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>

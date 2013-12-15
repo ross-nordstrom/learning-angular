@@ -1,14 +1,23 @@
-var app = angular.module('phoneApp', []);
+var app = angular.module('app', []);
 
 var phoneAppStuff = {}
 
 phoneAppStuff.controllers = {};
-phoneAppStuff.controllers.AppCtrl = function ($scope) {
-  this.sayHi = function () {
-    alert("hi");
+phoneAppStuff.controllers.RoomCtrl = function () {
+  this.openDoor = function () {
+    alert("creak");
   }
 
-  return $scope.AppCtrl = this;
+  this.buttonTitle = "I'm a dog";
+  this.foo="bar";
+}
+phoneAppStuff.controllers.OtherCtrl = function () {
+  this.openDoor = function () {
+    alert("creak");
+  }
+
+  this.buttonTitle = "I'm a dog";
+  this.foo="baz";
 }
 
 phoneAppStuff.directives = {}
