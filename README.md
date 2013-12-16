@@ -105,3 +105,25 @@ attributes of something having to do with ng-repeat, it's best to add elements.
 
  * To apply a directive to the whole repeat, wrap the repeat in a parent element
  * To apply a directive to each inner piece of the repeat, put it on a child of the ng-repeat element
+
+## Templates
+It's rarely best to just include templates as a string. Usually you'll want to put the content in an actual template,
+and reference it with `templateUrl = 'foo.html'`.
+
+### Separate HTML File
+The easy way is to make a `foo.html` file and move the contents over to it. The problem with this is that you
+need to be running it off a server.
+
+### Script Template "File"
+Alternatively, you can put the template in a `script` tag:
+
+```HTML
+<script type="text/ng-template" id="foo.html">
+   <div><h3>BAR</h3></div>
+   <p>BAZ</p>
+</script>
+```
+
+This adds the template to the "template cache" (`$templateCache`). You also need to be sure to
+include the script *inside your app*, and it's best practice to do so at the top, so you're sure
+you have it by the first time you reference it.
