@@ -6,20 +6,31 @@ app.config(function ($routeProvider) {
       templateUrl: "app.html",
       controller: "AppCtrl",
       resolve: {
-        app: function($q, $timeout) {
-          var defer = $q.defer();
-          $timeout(function() {
-            defer.resolve();
-          }, 2000);
-          return defer.promise
-        }
+        loadData: appCtrl.loadData,
+        prepData: appCtrl.prepData
       }
     })
 });
 
-app.controller("AppCtrl", function ($scope, $q) {
-
+var appCtrl = app.controller("AppCtrl", function ($scope, $route) {
+  console.log($route);
   $scope.model = {
     message: "This is my app!!!"
   }
 });
+
+appCtrl.loadData = function($q, $timeout) {
+  var defer = $q.defer();
+  $timeout(function() {
+    defer.resolve("loadData");
+  }, 2000);
+  return defer.promise
+}
+
+appCtrl.prepData = function($q, $timeout) {
+  var defer = $q.defer();
+  $timeout(function() {
+    defer.resolve("prepData");
+  }, 2000);
+  return defer.promise
+}
