@@ -5,18 +5,16 @@
   <title>Learning AngularJS</title>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.2/stylesheets/foundation.min.css" />
 </head>
-<body ng-app="app">
+<body>
 
-(Change loglevel to 'info' or 'warn' to view logs in console)
-
-<div  class="button"
-      ng-repeat="item in ['a','b','c','d']"
-      ng-click="$log.debug($event)"
-      >
-  {{$index}}. {{item}}
-  {{ev.pageX}}
+<div ng-app="app">
+  <script type="text/ng-template" id="app.html">
+    <h1>{{model.message}}</h1>
+  </script>
+  <ng-view></ng-view>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+<script src="angular.js"></script>
+<script src="angular-route.js"></script>
 <script src="main.js"></script>
 </body>

@@ -1,9 +1,16 @@
-var app = angular.module("app", []);
+var app = angular.module('app', ['ngRoute']);
 
-app.config(function($logProvider){
-  $logProvider.debugEnabled(false);
+app.config(function($routeProvider){
+  $routeProvider.when("/",
+    {
+      templateUrl: "app.html",
+      controller: "AppCtrl"
+    }
+  );
 });
 
-app.run(function($rootScope, $log){
-  $rootScope.$log = $log;
+app.controller("AppCtrl", function($scope){
+  $scope.model = {
+    message: "This is my app!!!"
+  }
 });
