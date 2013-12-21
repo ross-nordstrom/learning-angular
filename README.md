@@ -12,6 +12,8 @@ Tid-bits I learned from the tutorial, or from resources the tutorial (or ideas i
 ## TDD
 Yea, that's right... you can TDD javascript. In fact, that's one of the shiny, attractive features of AngularJS - it works really well with testing.
 
+Here's a simple, but clear video on how to do TDD: [Egghead: Testing Overview](http://www.thinkster.io/pick/98gzbj1fSo/angularjs-testing-overview)
+
 ## Imperitive vs Declarative Code
 In short, we are most familiar with Imperitive code -- telling a computer _how_ to do things. Declarative code -- telling a computer _what_ end result we want -- is something most coders at once don't understand and yet are experienced with. SQL is actually a declarative language; D3.js is as well. Recognizing D3 as a declarative language helps explain the difficulty of learning it.
 
